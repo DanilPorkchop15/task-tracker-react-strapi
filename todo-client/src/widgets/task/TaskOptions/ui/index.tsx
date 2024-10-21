@@ -2,6 +2,8 @@ import { ChangeEvent, FC, useState } from "react";
 
 import { CheckAllTasksFeature, CreateTaskFeature } from "features/task";
 
+import { useUsers } from "entities/user";
+
 import {
   NewTaskInputStyled,
   TaskOptionsBlockStyled,
@@ -12,6 +14,7 @@ import {
 export const TaskOptions: FC = () => {
   const [value, setValue] = useState<string>("");
   const [userId, setUserId] = useState<number | null>(null);
+  const user = useUsers().state[0];
 
   const handleChange: (e: ChangeEvent<HTMLInputElement>) => void = (e) => {
     setValue(e.target.value);
@@ -25,15 +28,13 @@ export const TaskOptions: FC = () => {
     <TaskOptionsStyled>
       <TaskOptionsBlockStyled>
         <NewTaskInputStyled placeholder="Enter new task..." type="text" value={value} onChange={handleChange} />
-        <TaskOptionsUserSelectStyled onSelect={handleSelect} />
-        {userId && (
-          <CreateTaskFeature
-            disabled={!userId || value.length === 0}
-            title={value}
-            user={userId}
-            onSuccess={() => setValue("")}
-          />
-        )}
+        <TaskOptionsUserSelectStyled defaultValue={user.id} onSelect={handleSelect} />
+        <CreateTaskFeature
+          disabled={!userId || value.length === 0}
+          title={value}
+          user={userId ?? user.id}
+          onSuccess={() => setValue("")}
+        />
       </TaskOptionsBlockStyled>
 
       <TaskOptionsBlockStyled>

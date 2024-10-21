@@ -9,8 +9,8 @@ export class UserSelectService {
     this._onSelect = onSelect;
   }
 
-  public selectUser(username: string) {
-    const user = this.users.find((u) => u.username === username);
+  public selectUser(id: number) {
+    const user = this.users.find((u) => u.id === id);
     if (user) {
       this._onSelect(user.id);
     }

@@ -13,7 +13,7 @@ interface TaskEditProps {
   username: string | null;
 }
 
-const TaskEdit: FC<TaskEditProps> = ({ task, username }) => {
+const TaskEdit: FC<TaskEditProps> = ({ task }) => {
   const [userId, setUserId] = useState<number>(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -46,7 +46,7 @@ const TaskEdit: FC<TaskEditProps> = ({ task, username }) => {
       </TaskLabelStyled>
       <TaskLabelStyled>
         Author
-        <TaskUserSelectStyled defaultValue={username} onSelect={handleSelect} />
+        <TaskUserSelectStyled defaultValue={task.user.id} onSelect={handleSelect} />
       </TaskLabelStyled>
       <Button type="submit">Edit</Button>
     </TaskEditFormStyled>

@@ -8,7 +8,7 @@ import { SelectStyled } from "./TaskUserSelectStyled";
 
 interface UserSelectProps {
   onSelect: (userId: number) => void;
-  defaultValue?: string | null;
+  defaultValue?: number | null;
   className?: string | null;
 }
 
@@ -17,11 +17,14 @@ export const UserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, classN
   const service = new UserSelectService(users.state, onSelect);
 
   useEffect(() => {
-    service.selectUser(defaultValue ?? "");
-  }, []); // eslint-disable-line
+    if (defaultValue) {
+      service.selectUser(defaultValue);
+      onSelect(defaultValue);
+    }
+  }, [defaultValue]); // eslint-disable-line
 
   const handleSelect: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    service.selectUser(e.target.value);
+    service.selectUser(+e.target.value);
   };
 
   return (
