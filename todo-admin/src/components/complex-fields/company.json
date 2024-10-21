@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_complex_fields_companies",
+  "info": {
+    "displayName": "Company",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "catchPhrase": {
+      "type": "string",
+      "required": true
+    },
+    "bs": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
