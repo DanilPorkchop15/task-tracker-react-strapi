@@ -4,11 +4,11 @@ import { useAsync } from "react-use";
 
 import { Loader } from "shared/ui";
 
-import { tasksService } from "./service";
+import { tasksLoaderService } from "./service";
 
 export const TasksProvider = React.memo(function TaskDetailsProvider({ children }: { children: React.ReactNode }) {
   const { loading } = useAsync(async () => {
-    await tasksService.loadTasks.bind(tasksService)();
+    await tasksLoaderService.loadTasks.bind(tasksLoaderService)();
   }, []);
 
   if (loading) return <Loader />;

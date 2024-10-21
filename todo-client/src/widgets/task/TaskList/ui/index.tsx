@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 
 import { Task } from "features/task";
 
-import { tasksService } from "entities/task";
+import { useTasks } from "entities/task";
 
 import { Pagination } from "shared/ui";
 
@@ -17,19 +17,16 @@ export const TaskList: FC = observer(() => {
 
   const indexOfLastTask = currentPage * taskPerPage;
   const indexOfFirstTask = indexOfLastTask - taskPerPage;
-  const currentTasks = tasksService.tasks?.state.slice(indexOfFirstTask, indexOfLastTask);
+
+  const tasks = useTasks();
+  const currentTasks = tasks.state.slice(indexOfFirstTask, indexOfLastTask);
 
   return (
     <TaskListStyled>
-      {currentTasks?.map((task) => <Task key={task.id} task={task} />)}
-      {tasksService.tasks && (
-        <Pagination
-          currentPage={currentPage}
-          data={tasksService.tasks.state}
-          taskPerPage={taskPerPage}
-          onPageChange={paginate}
-        />
-      )}
+      {currentTasks.map((task) => (
+        <Task key={task.id} task={task} />
+      ))}
+      <Pagination currentPage={currentPage} data={tasks.state} taskPerPage={taskPerPage} onPageChange={paginate} />
     </TaskListStyled>
   );
 });

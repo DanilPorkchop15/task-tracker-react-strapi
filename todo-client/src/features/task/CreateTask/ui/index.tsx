@@ -1,4 +1,4 @@
-import { tasksService } from "entities/task";
+import { tasksCreatorService } from "../../services";
 
 import { NewTaskButtonStyled } from "./CreateTaskStyled";
 
@@ -12,7 +12,7 @@ interface CreateTaskProps {
 export const CreateTaskFeature = ({ disabled, title, user, onSuccess }: CreateTaskProps) => {
   const handleAdd = async () => {
     if (title && user) {
-      await tasksService.createTask({
+      await tasksCreatorService.createTask({
         title,
         user,
         completed: false,

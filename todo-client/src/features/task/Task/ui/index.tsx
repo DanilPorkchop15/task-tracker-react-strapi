@@ -1,9 +1,11 @@
 import { FC, useEffect, useState } from "react";
 
-import { Task as ITask, tasksService } from "entities/task";
+import type { Task as ITask } from "entities/task";
 import { usersService } from "entities/user";
 
 import { Button } from "shared/ui";
+
+import { tasksDeleterService, tasksUpdaterService } from "../../services";
 
 import TaskEdit from "./TaskEdit";
 import { TaskActionsStyled, TaskBlockStyled, TaskSectionStyled, TaskStyled } from "./TaskStyled";
@@ -24,8 +26,12 @@ export const Task: FC<TaskProps> = ({ task }) => {
   }, [task.user]);
 
   const handleToggle = async () =>
-    tasksService.updateTask(task.documentId, { title: task.title, completed: !task.completed, user: task.user.id });
-  const handleDelete = async () => tasksService.deleteTask(task.documentId);
+    tasksUpdaterService.updateTask(task.documentId, {
+      title: task.title,
+      completed: !task.completed,
+      user: task.user.id,
+    });
+  const handleDelete = async () => tasksDeleterService.deleteTask(task.documentId);
 
   const toggleEdit = () => setDoEdit(!doEdit);
 

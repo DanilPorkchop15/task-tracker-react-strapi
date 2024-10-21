@@ -1,4 +1,4 @@
-import { tasksService } from "entities/task";
+import { tasksCheckerService } from "../../services";
 
 import { MarkAllButtonStyled, UnmarkAllButtonStyled } from "./CheckAllTasksStyled";
 
@@ -8,11 +8,11 @@ interface CheckAllTasksProps {
 
 export const CheckAllTasksFeature = ({ uncheck }: CheckAllTasksProps) => {
   return uncheck ? (
-    <UnmarkAllButtonStyled $danger onClick={async () => tasksService.markAll(false)}>
+    <UnmarkAllButtonStyled $danger onClick={async () => tasksCheckerService.markAll(false)}>
       Uncheck all
     </UnmarkAllButtonStyled>
   ) : (
-    <MarkAllButtonStyled $success onClick={async () => tasksService.markAll(true)}>
+    <MarkAllButtonStyled $success onClick={async () => tasksCheckerService.markAll(true)}>
       Check all
     </MarkAllButtonStyled>
   );

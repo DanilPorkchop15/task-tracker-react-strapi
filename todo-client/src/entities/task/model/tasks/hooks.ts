@@ -1,10 +1,10 @@
 import { isNil } from "ramda";
 
 import type { TasksModel } from "./model";
-import { tasksService } from "./service";
+import { tasksLoaderService } from "./service";
 
 export function useTasks(): TasksModel {
-  const tasks = tasksService.tasks;
+  const tasks = tasksLoaderService.tasks;
 
   if (isNil(tasks)) throw new Error("tasks not found");
 
