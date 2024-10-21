@@ -1,13 +1,15 @@
 import { FC, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import { tasksService } from "../../entities/task";
-import Pagination from "../../shared/ui/Pagination/Pagination";
-import Task from "../Task/Task";
+import { Task } from "features/task";
+
+import { tasksService } from "entities/task";
+
+import { Pagination } from "shared/ui";
 
 import { TaskListStyled } from "./TaskListStyled";
 
-const TaskList: FC = observer(() => {
+export const TaskList: FC = observer(() => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const taskPerPage = 10;
 
@@ -32,4 +34,3 @@ const TaskList: FC = observer(() => {
   );
 });
 
-export default TaskList;

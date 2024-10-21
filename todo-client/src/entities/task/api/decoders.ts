@@ -1,7 +1,8 @@
 import Decoder, { boolean, field, number, string, succeed } from "jsonous";
 
-import { userDecoder } from "../../user/@x";
-import { Task } from "../interfaces";
+import { userDecoder } from "entities/user/@x";
+
+import type { Task } from "../interfaces";
 
 export const taskDecoder: Decoder<Task> = succeed({})
   .assign("id", field("id", number))

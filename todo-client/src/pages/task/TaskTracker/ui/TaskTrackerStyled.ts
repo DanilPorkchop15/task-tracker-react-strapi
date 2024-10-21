@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import { AlignCenterStyled, FlexColStyled } from "../../shared/ui/utils";
+import { alignCenterStyled, flexColStyled } from "shared/ui";
 
 export const TaskTrackerStyled = styled.div`
-  ${FlexColStyled}
-  ${AlignCenterStyled}
+  ${flexColStyled}
+  ${alignCenterStyled}
   padding-top: 40px;
   gap: 10px;
   width: 100%;

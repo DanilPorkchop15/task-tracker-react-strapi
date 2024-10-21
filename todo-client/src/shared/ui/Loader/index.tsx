@@ -1,4 +1,4 @@
-import React from "react";
+import type {FC} from "react";
 import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
@@ -7,7 +7,7 @@ const rotate = keyframes`
   }
 `;
 
-export const Loader: React.FC = styled.div`
+export const Loader: FC = styled.div`
   width: 100px;
   height: 100px;
   background: linear-gradient(

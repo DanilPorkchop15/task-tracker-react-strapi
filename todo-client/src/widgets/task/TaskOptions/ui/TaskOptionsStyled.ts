@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import { Button, Input } from "../../shared/ui";
-import { AlignCenterStyled, FlexColStyled } from "../../shared/ui/utils";
-import TaskUserSelect from "../TaskUserSelect/TaskUserSelect";
+import {UserSelect} from "features/user";
+
+import { alignCenterStyled, Button, flexColStyled,Input } from "shared/ui";
 
 export const TaskOptionsStyled = styled.div`
-  ${FlexColStyled};
+  ${flexColStyled};
   max-width: 666px;
   width: 100%;
   margin-bottom: 20px;
@@ -13,7 +13,7 @@ export const TaskOptionsStyled = styled.div`
 `;
 
 export const TaskOptionsBlockStyled = styled.div`
-  ${AlignCenterStyled};
+  ${alignCenterStyled};
   width: 100%;
 `;
 
@@ -28,7 +28,7 @@ export const NewTaskButtonStyled = styled(Button)`
   align-self: stretch;
 `;
 
-export const TaskOptionsUserSelectStyled = styled(TaskUserSelect)`
+export const TaskOptionsUserSelectStyled = styled(UserSelect)`
   max-width: 250px;
 `;
 

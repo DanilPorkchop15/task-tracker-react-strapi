@@ -1,7 +1,8 @@
 import { FC, FormEvent, useEffect, useRef, useState } from "react";
 
-import { Task, tasksService } from "../../entities/task";
-import { Button } from "../../shared/ui";
+import { Task, tasksService } from "entities/task";
+
+import { Button } from "shared/ui";
 
 import { TaskEditFormStyled, TaskEditInputStyled, TaskLabelStyled, TaskUserSelectStyled } from "./TaskEditStyled";
 
@@ -31,8 +32,8 @@ const TaskEdit: FC<TaskEditProps> = ({ task, username }) => {
     await tasksService.updateTask(task.documentId, { title: newTitle, user: userId, completed: task.completed });
   };
 
-  const handleSelect: (userId: number) => void = (userId: number) => {
-    setUserId(userId);
+  const handleSelect = (id: number) => {
+    setUserId(id);
   };
 
   return (

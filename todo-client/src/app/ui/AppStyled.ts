@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import { FlexCenterStyled,FlexColStyled } from "../../shared/ui/utils";
+import { flexCenterStyled,flexColStyled } from "shared/ui";
 
 export const AppStyled = styled.div`
-  ${FlexColStyled}
-  ${FlexCenterStyled}
+  ${flexColStyled}
+  ${flexCenterStyled}
   min-height: 100vh;
   padding-inline: 20px;
   margin-inline: auto;

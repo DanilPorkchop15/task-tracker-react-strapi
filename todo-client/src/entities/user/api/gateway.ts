@@ -1,6 +1,8 @@
-import { UsersPermissionsUsersRolesOpenApi } from "../../../api";
-import { applyDecoder } from "../../../shared/lib";
-import { User } from "../interfaces";
+import { UsersPermissionsUsersRolesOpenApi } from "api";
+
+import { applyDecoder } from "shared/lib";
+
+import type { User } from "../interfaces";
 
 import { userDecoder, usersDecoder } from "./decoders";
 

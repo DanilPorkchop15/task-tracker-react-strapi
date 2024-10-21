@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useState } from "react";
 
-import { tasksService } from "../../entities/task";
+import { tasksService } from "../../../../entities/task";
 
 import {
   MarkAllButtonStyled,
@@ -12,7 +12,7 @@ import {
   UnmarkAllButtonStyled,
 } from "./TaskOptionsStyled";
 
-const TaskOptions: FC = () => {
+export const TaskOptions: FC = () => {
   const [value, setValue] = useState<string>("");
   const [userId, setUserId] = useState<number | null>(null);
 
@@ -33,8 +33,8 @@ const TaskOptions: FC = () => {
     setValue(e.target.value);
   };
 
-  const handleSelect: (userId: number) => void = (userId) => {
-    setUserId(userId);
+  const handleSelect= (id: number) => {
+    setUserId(id);
   };
 
   return (
@@ -59,4 +59,3 @@ const TaskOptions: FC = () => {
   );
 };
 
-export default TaskOptions;

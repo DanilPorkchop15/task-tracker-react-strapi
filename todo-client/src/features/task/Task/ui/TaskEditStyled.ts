@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-import { Input } from "../../shared/ui";
-import { FlexCenterStyled, FlexColStyled } from "../../shared/ui/utils";
-import TaskUserSelect from "../TaskUserSelect/TaskUserSelect";
+import { UserSelect } from "features/user/@x";
+
+import { Input } from "shared/ui";
+import { flexCenterStyled, flexColStyled } from "shared/ui/utils";
 
 export const TaskEditFormStyled = styled.form`
-  ${FlexColStyled};
-  ${FlexCenterStyled};
+  ${flexColStyled};
+  ${flexCenterStyled};
   margin-top: 20px;
   gap: 20px;
   align-items: flex-start;
@@ -18,21 +19,21 @@ export const TaskEditFormStyled = styled.form`
 `;
 
 export const TaskLabelStyled = styled.label`
-  ${FlexColStyled};
+  ${flexColStyled};
   gap: 10px;
   margin-bottom: 10px;
   width: 100%;
 `;
 
 export const LabelWithSelect = styled.div`
-  ${FlexColStyled};
+  ${flexColStyled};
   align-self: center;
   gap: 10px;
   margin-bottom: 10px;
   width: 100%;
 `;
 
-export const TaskUserSelectStyled = styled(TaskUserSelect)`
+export const TaskUserSelectStyled = styled(UserSelect)`
   border-radius: 10px;
 `;
 

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 
-import { User, usersService } from "../../entities/user";
+import { User, usersService } from "entities/user";
 
 import { SelectStyled } from "./TaskUserSelectStyled";
 
@@ -10,7 +10,7 @@ interface UserSelectProps {
   className?: string | null;
 }
 
-const TaskUserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, className }) => {
+export const UserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, className }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -22,8 +22,8 @@ const TaskUserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, className
   }, []); // eslint-disable-line
 
   const handleSelect: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const selectedUser = usersService.users?.state.find((user) => user.id === +e.target.value);
-    setSelectedUser(selectedUser!);
+    const u = usersService.users?.state.find((user) => user.id === +e.target.value);
+    setSelectedUser(u ?? null);
     onSelect(+e.target.value);
   };
 
@@ -49,5 +49,3 @@ const TaskUserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, className
     </SelectStyled>
   );
 };
-
-export default TaskUserSelect;

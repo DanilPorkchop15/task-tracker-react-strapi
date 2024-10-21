@@ -1,17 +1,18 @@
 import { FC, useEffect,useState } from "react";
 
-import { Task as ITask, tasksService } from "../../entities/task";
-import { usersService } from "../../entities/user";
-import { Button } from "../../shared/ui";
-import TaskEdit from "../TaskEdit/TaskEdit";
+import { Task as ITask, tasksService } from "entities/task";
+import { usersService } from "entities/user";
 
+import { Button } from "shared/ui";
+
+import TaskEdit from "./TaskEdit";
 import { TaskActionsStyled, TaskBlockStyled, TaskSectionStyled, TaskStyled } from "./TaskStyled";
 
 interface TaskProps {
   task: ITask;
 }
 
-const Task: FC<TaskProps> = ({ task }) => {
+export const Task: FC<TaskProps> = ({ task }) => {
   const [doEdit, setDoEdit] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
 
@@ -19,7 +20,7 @@ const Task: FC<TaskProps> = ({ task }) => {
     usersService
       .getUser(task.user.id)
       .then((user) => setUsername(user.username))
-      .catch((e: Error) => console.log("User fetch error " + e));
+      .catch((e: Error) => console.log("User fetch error ", e));
   }, [task.user]);
 
   const handleToggle = async () =>
@@ -60,4 +61,3 @@ const Task: FC<TaskProps> = ({ task }) => {
   );
 };
 
-export default Task;

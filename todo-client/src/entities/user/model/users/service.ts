@@ -1,5 +1,5 @@
 import { UserApi } from "../../api";
-import { User } from "../../interfaces";
+import type { User } from "../../interfaces";
 
 import { UsersModel } from "./model";
 

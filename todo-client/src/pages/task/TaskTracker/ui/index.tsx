@@ -1,11 +1,10 @@
-import { FC } from "react";
+import type { FC } from "react";
 
-import TaskList from "../TaskList/TaskList";
-import TaskOptions from "../TaskOptions/TaskOptions";
+import {TaskList, TaskOptions} from "widgets/task";
 
 import { TaskTrackerStyled, TaskTrackerTitleH1, TaskTrackerTitleH2 } from "./TaskTrackerStyled";
 
-const TaskTracker: FC = () => {
+export const TaskTracker: FC = () => {
   return (
     <TaskTrackerStyled>
       <TaskTrackerTitleH1>Task Tracker</TaskTrackerTitleH1>
@@ -16,5 +15,3 @@ const TaskTracker: FC = () => {
     </TaskTrackerStyled>
   );
 };
-
-export default TaskTracker;

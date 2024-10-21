@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { FlexColStyled } from "../../shared/ui/utils";
+import { flexColStyled } from "shared/ui";
 
 export const TaskListStyled = styled.div`
-  ${FlexColStyled};
+  ${flexColStyled};
   margin-top: 20px;
 `;

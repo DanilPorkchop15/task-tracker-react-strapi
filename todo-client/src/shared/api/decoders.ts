@@ -2,7 +2,7 @@ import Decoder, { array, field, number, succeed } from "jsonous";
 import { isNil } from "ramda";
 import { ok } from "resulty";
 
-import { ResponseBody } from "../model";
+import type { ResponseBody } from "../model";
 
 export function fieldOrFallback<A, D extends A | null>(
   key: string,

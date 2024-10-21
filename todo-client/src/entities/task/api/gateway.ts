@@ -1,7 +1,9 @@
-import { TodoOpenApi } from "../../../api";
-import { applyResponseDecoder } from "../../../shared/lib";
-import { ResponseBody } from "../../../shared/model";
-import { CreateTaskDto, Task, UpdateTaskDto } from "../interfaces";
+import { TodoOpenApi } from "api";
+
+import { applyResponseDecoder } from "shared/lib";
+import type { ResponseBody } from "shared/model";
+
+import type { CreateTaskDto, Task, UpdateTaskDto } from "../interfaces";
 
 import { taskDecoder } from "./decoders";
 

@@ -58,7 +58,7 @@
       },
       {
         "type": "features",
-        "pattern": "features/!(_*){,/*}",
+        "pattern": "features/!(_*){,/*} !(features/**/@x)",
         "mode": "folder",
         "capture": [
           "slices"
@@ -73,8 +73,16 @@
         ]
       },
       {
+        "type": "features/**/@x",
+        "pattern": "features/**/@x",
+        "mode": "folder",
+        "capture": [
+          "slices"
+        ]
+      },
+      {
         "type": "entities",
-        "pattern": "entities/!(_*){,/*} !(entities/*/@x)",
+        "pattern": "entities/!(_*){,/*} !(entities/**/@x)",
         "mode": "folder",
         "capture": [
           "slices"
@@ -694,6 +702,7 @@
               "processes",
               "pages",
               "widgets",
+              "entities/**/@x",
               "features",
               "entities/**/@x",
               "entities",
@@ -705,6 +714,7 @@
             "allow": [
               "pages",
               "widgets",
+              "features/**/@x",
               "entities/**/@x",
               "features",
               "entities",
@@ -717,6 +727,7 @@
               "widgets",
               "features",
               "entities/**/@x",
+              "features/**/@x",
               "entities",
               "shared"
             ]
@@ -724,6 +735,7 @@
           {
             "from": "widgets",
             "allow": [
+              "entities/**/@x",
               "features",
               "entities/**/@x",
               "entities",
@@ -733,6 +745,7 @@
           {
             "from": "features",
             "allow": [
+              "features/**/@x",
               "entities/**/@x",
               "entities",
               "shared"

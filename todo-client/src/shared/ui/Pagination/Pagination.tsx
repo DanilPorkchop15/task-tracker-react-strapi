@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { type FC, useEffect, useState } from "react";
 
 import { PaginationButton, PaginationStyled } from "./PaginationStyled";
 
@@ -9,7 +9,12 @@ interface PaginationProps<T> {
   currentPage: number;
 }
 
-const Pagination = <T extends unknown>({ data, taskPerPage, onPageChange, currentPage }: PaginationProps<T>) => {
+export const Pagination: FC<PaginationProps<unknown>> = <T,>({
+  data,
+  taskPerPage,
+  onPageChange,
+  currentPage,
+}: PaginationProps<T>) => {
   const [pages, setPages] = useState<number[]>([]);
 
   useEffect(() => {
@@ -32,5 +37,3 @@ const Pagination = <T extends unknown>({ data, taskPerPage, onPageChange, curren
     </PaginationStyled>
   );
 };
-
-export default Pagination;

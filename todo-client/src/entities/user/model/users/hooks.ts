@@ -1,6 +1,6 @@
 import { isNil } from "ramda";
 
-import { UsersModel } from "./model";
+import type { UsersModel } from "./model";
 import { usersService } from "./service";
 
 export function useUsers(): UsersModel {

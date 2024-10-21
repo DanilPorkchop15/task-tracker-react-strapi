@@ -1,1 +1,1 @@
-export * from "./PaginationStyled";
+export * from "./Pagination";

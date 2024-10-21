@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import TaskTracker from "components/TaskTracker/TaskTracker";
 
-import { TasksProvider } from "../../entities/task";
-import { UsersProvider } from "../../entities/user";
+import { TaskTracker } from "pages/task/TaskTracker";
+
+import { TasksProvider } from "entities/task";
+import { UsersProvider } from "entities/user";
 
 import { AppStyled } from "./AppStyled";
 import { GlobalStyles } from "./GlobalStyles";

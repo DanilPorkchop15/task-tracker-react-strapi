@@ -1,6 +1,6 @@
 import Decoder, { array, field, number, string, succeed } from "jsonous";
 
-import { User } from "../interfaces";
+import type { User } from "../interfaces";
 
 export const userDecoder: Decoder<User> = succeed({})
   .assign("id", field("id", number))
