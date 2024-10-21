@@ -1,3 +1,5 @@
+import { isNil } from "ramda";
+
 import { TaskApi } from "../../api";
 import type { CreateTaskDto, Task, UpdateTaskDto } from "../../interfaces";
 
@@ -32,12 +34,16 @@ export class TasksService {
   }
 
   public async updateTask(id: string, task: UpdateTaskDto): Promise<void> {
-    const taskUpdated = await TaskApi.updateTask(id, task);
+    const res = await TaskApi.updateTask(id, task);
+
+    const taskUpdated = res.data.find((t) => t.documentId === id);
+
+    if (isNil(taskUpdated)) {
+      return;
+    }
+
     this._tasksModel?.set(
-      TasksService._sortTasks([
-        ...this._tasksModel.state.filter((t) => t.documentId !== id),
-        taskUpdated.data[0],
-      ]),
+      TasksService._sortTasks([...this._tasksModel.state.filter((t) => t.documentId !== id), taskUpdated]),
     );
   }
 
