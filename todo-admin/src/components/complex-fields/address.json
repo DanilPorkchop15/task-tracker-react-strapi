@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_complex_fields_addresses",
+  "info": {
+    "displayName": "Address",
+    "icon": "house"
+  },
+  "options": {},
+  "attributes": {
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "suite": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "zipcode": {
+      "type": "string",
+      "required": true
+    },
+    "geo": {
+      "displayName": "Geo",
+      "type": "component",
+      "repeatable": false,
+      "component": "complex-fields.geo"
+    }
+  }
+}
