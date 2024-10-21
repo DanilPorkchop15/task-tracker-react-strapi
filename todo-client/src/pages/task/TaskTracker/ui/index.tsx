@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import {TaskList, TaskOptions} from "widgets/task";
+import { TaskList, TaskOptions } from "widgets/task";
 
 import { TaskTrackerStyled, TaskTrackerTitleH1, TaskTrackerTitleH2 } from "./TaskTrackerStyled";
 

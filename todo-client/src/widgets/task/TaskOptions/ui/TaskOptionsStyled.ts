@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import {UserSelect} from "features/user";
+import { UserSelect } from "features/user";
 
-import { alignCenterStyled, Button, flexColStyled,Input } from "shared/ui";
+import { alignCenterStyled, flexColStyled, Input } from "shared/ui";
 
 export const TaskOptionsStyled = styled.div`
   ${flexColStyled};

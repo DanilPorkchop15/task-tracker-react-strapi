@@ -26,15 +26,14 @@ export const TaskOptions: FC = () => {
       <TaskOptionsBlockStyled>
         <NewTaskInputStyled placeholder="Enter new task..." type="text" value={value} onChange={handleChange} />
         <TaskOptionsUserSelectStyled onSelect={handleSelect} />
-        {
-          userId &&
+        {userId && (
           <CreateTaskFeature
             disabled={!userId || value.length === 0}
             title={value}
             user={userId}
             onSuccess={() => setValue("")}
           />
-        }
+        )}
       </TaskOptionsBlockStyled>
 
       <TaskOptionsBlockStyled>

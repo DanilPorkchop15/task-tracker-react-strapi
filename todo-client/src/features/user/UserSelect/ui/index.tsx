@@ -12,7 +12,7 @@ interface UserSelectProps {
 
 export const UserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, className }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
-  const users = useUsers()
+  const users = useUsers();
 
   useEffect(() => {
     const defaultValueUser = users.state.find((user) => user.username === defaultValue);

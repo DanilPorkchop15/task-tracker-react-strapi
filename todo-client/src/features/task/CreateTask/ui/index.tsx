@@ -17,7 +17,7 @@ export const CreateTaskFeature = ({ disabled, title, user, onSuccess }: CreateTa
         user,
         completed: false,
       });
-      onSuccess()
+      onSuccess();
     } else {
       alert("Введите текст и автора заметки!");
     }

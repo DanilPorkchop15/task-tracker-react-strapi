@@ -1,4 +1,4 @@
-import { FC, useEffect,useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { Task as ITask, tasksService } from "entities/task";
 import { usersService } from "entities/user";
@@ -60,4 +60,3 @@ export const Task: FC<TaskProps> = ({ task }) => {
     </TaskStyled>
   );
 };
-

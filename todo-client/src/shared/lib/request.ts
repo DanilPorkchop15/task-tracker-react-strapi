@@ -8,7 +8,7 @@ export const request = async <T extends object>(
   try {
     const res = await fetch(url, { method, ...requestData });
     if (res.ok) {
-      return await res.json() as object;
+      return (await res.json()) as object;
     } else {
       throw new Error(`${method} request to ${url} failed with ${res.status} ${res.statusText}`);
     }
