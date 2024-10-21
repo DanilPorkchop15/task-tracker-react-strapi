@@ -3,11 +3,10 @@
 /* tslint:disable */
 /* eslint-disable */
 export type Users_Permissions_Role = {
-    id?: number;
-    name?: string;
-    description?: string;
-    type?: string;
-    createdAt?: string;
-    updatedAt?: string;
+  id?: number;
+  name?: string;
+  description?: string;
+  type?: string;
+  createdAt?: string;
+  updatedAt?: string;
 };
-

@@ -3,9 +3,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export type ComplexFieldsCompanyComponent = {
-    id?: number;
-    name?: string;
-    catchPhrase?: string;
-    bs?: string;
+  id?: number;
+  name?: string;
+  catchPhrase?: string;
+  bs?: string;
 };
-

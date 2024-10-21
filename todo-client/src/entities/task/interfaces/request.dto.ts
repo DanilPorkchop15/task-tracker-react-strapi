@@ -1,7 +1,7 @@
 export interface CreateTaskDto {
   title: string;
   completed: boolean;
-  user: number
+  user: number;
 }
 
 export interface UpdateTaskDto extends CreateTaskDto {}

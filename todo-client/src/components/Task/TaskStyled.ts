@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import {
-  AlignBaselineStyled,
-  FlexColStyled,
-  FlexStyled,
-  JustifyBetweenStyled,
-} from "../../shared/ui/utils";
+
+import { AlignBaselineStyled, FlexColStyled, FlexStyled, JustifyBetweenStyled } from "../../shared/ui/utils";
 
 export const TaskStyled = styled.div`
   ${FlexColStyled};

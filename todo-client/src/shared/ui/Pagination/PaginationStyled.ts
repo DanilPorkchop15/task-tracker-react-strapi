@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const PaginationButton = styled.button<{ $isActive?: boolean }>`
-  background-color: ${({ $isActive }) =>
-    $isActive ? "var(--primary-color)" : "var(--foreground-color)"};
+  background-color: ${({ $isActive }) => ($isActive ? "var(--primary-color)" : "var(--foreground-color)")};
   color: var(--text-color);
   border: none;
   padding: 5px 8px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { AlignCenterStyled, FlexColStyled } from "../../shared/ui/utils";
 
 export const TaskTrackerStyled = styled.div`
@@ -13,8 +14,6 @@ export const TaskTrackerTitleH1 = styled.h1`
   margin-top: 20px;
 `;
 
-export const TaskTrackerTitleH2= styled.h2`
+export const TaskTrackerTitleH2 = styled.h2`
   margin-top: 20px;
 `;
-
-

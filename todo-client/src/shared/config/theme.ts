@@ -1,7 +1,7 @@
-import {css} from "styled-components";
+import { css } from "styled-components";
 
 export const theme = css`
-:root {
+  :root {
     --primary-color: #212121;
     --secondary-color: #484848;
     --foreground-color: #424242;
@@ -13,4 +13,5 @@ export const theme = css`
     --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     --input-background-color: #424242;
     --input-border-color: #303030;
-}`
+  }
+`;

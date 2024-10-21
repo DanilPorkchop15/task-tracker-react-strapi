@@ -3,24 +3,24 @@
 /* tslint:disable */
 /* eslint-disable */
 export const $ComplexFieldsAddressComponent = {
-    properties: {
-        id: {
-            type: 'number',
-        },
-        street: {
-            type: 'string',
-        },
-        suite: {
-            type: 'string',
-        },
-        city: {
-            type: 'string',
-        },
-        zipcode: {
-            type: 'string',
-        },
-        geo: {
-            type: 'ComplexFieldsGeoComponent',
-        },
+  properties: {
+    id: {
+      type: "number",
     },
+    street: {
+      type: "string",
+    },
+    suite: {
+      type: "string",
+    },
+    city: {
+      type: "string",
+    },
+    zipcode: {
+      type: "string",
+    },
+    geo: {
+      type: "ComplexFieldsGeoComponent",
+    },
+  },
 } as const;

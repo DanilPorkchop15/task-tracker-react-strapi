@@ -1,6 +1,8 @@
-import React, {FC, useEffect, useState} from "react";
-import {SelectStyled} from "./TaskUserSelectStyled";
-import {User, usersService} from "../../entities/user";
+import React, { FC, useEffect, useState } from "react";
+
+import { User, usersService } from "../../entities/user";
+
+import { SelectStyled } from "./TaskUserSelectStyled";
 
 interface UserSelectProps {
   onSelect: (userId: number) => void;
@@ -8,17 +10,11 @@ interface UserSelectProps {
   className?: string | null;
 }
 
-const TaskUserSelect: FC<UserSelectProps> = ({
-                                               onSelect,
-                                               defaultValue,
-                                               className,
-                                             }) => {
+const TaskUserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, className }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const defaultValueUser = usersService.users?.state.find(
-      (user) => user.username === defaultValue
-    );
+    const defaultValueUser = usersService.users?.state.find((user) => user.username === defaultValue);
     if (defaultValueUser) {
       setSelectedUser(defaultValueUser);
       onSelect(defaultValueUser.id);
@@ -27,23 +23,23 @@ const TaskUserSelect: FC<UserSelectProps> = ({
 
   const handleSelect: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
     const selectedUser = usersService.users?.state.find((user) => user.id === +e.target.value);
-    setSelectedUser(selectedUser as User);
+    setSelectedUser(selectedUser!);
     onSelect(+e.target.value);
   };
 
   return (
     <SelectStyled
-      name="selectUser"
-      onChange={handleSelect}
-      value={selectedUser?.id ?? "default"}
       className={className ? className : ""}
+      name="selectUser"
+      value={selectedUser?.id ?? "default"}
+      onChange={handleSelect}
     >
-      <option value="default" disabled>
+      <option disabled value="default">
         Select user
       </option>
       {usersService.users ? (
-        usersService.users?.state.map((user) => (
-          <option value={user.id} key={user.id}>
+        usersService.users.state.map((user) => (
+          <option key={user.id} value={user.id}>
             User: {user.username}
           </option>
         ))

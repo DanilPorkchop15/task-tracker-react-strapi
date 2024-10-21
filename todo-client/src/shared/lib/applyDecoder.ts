@@ -1,7 +1,8 @@
 import Decoder from "jsonous";
-import {ResponseBody} from "../model";
-import {responseBodyDecoder} from "../api";
-import {pipe} from "ramda";
+import { pipe } from "ramda";
+
+import { responseBodyDecoder } from "../api";
+import { ResponseBody } from "../model";
 
 export function applyDecoder<T>(decoder: Decoder<T>): (data: unknown) => T {
   return (data) => {

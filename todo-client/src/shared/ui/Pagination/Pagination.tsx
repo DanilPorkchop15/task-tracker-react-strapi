@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { PaginationButton, PaginationStyled } from "./PaginationStyled";
 
 interface PaginationProps<T> {
@@ -8,12 +9,7 @@ interface PaginationProps<T> {
   currentPage: number;
 }
 
-const Pagination = <T extends unknown>({
-  data,
-  taskPerPage,
-  onPageChange,
-  currentPage,
-}: PaginationProps<T>) => {
+const Pagination = <T extends unknown>({ data, taskPerPage, onPageChange, currentPage }: PaginationProps<T>) => {
   const [pages, setPages] = useState<number[]>([]);
 
   useEffect(() => {
@@ -25,10 +21,10 @@ const Pagination = <T extends unknown>({
     <PaginationStyled>
       {pages.map((page) => (
         <PaginationButton
-          $isActive={page === currentPage}
           key={page}
-          onClick={() => onPageChange(page)}
+          $isActive={page === currentPage}
           disabled={page === currentPage}
+          onClick={() => onPageChange(page)}
         >
           {page}
         </PaginationButton>

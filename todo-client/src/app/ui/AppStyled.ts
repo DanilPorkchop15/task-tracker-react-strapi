@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { FlexColStyled, FlexCenterStyled } from "../../shared/ui/utils";
+
+import { FlexCenterStyled,FlexColStyled } from "../../shared/ui/utils";
 
 export const AppStyled = styled.div`
   ${FlexColStyled}

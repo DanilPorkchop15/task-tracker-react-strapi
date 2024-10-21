@@ -1,20 +1,21 @@
 import React, { Component } from "react";
+import TaskTracker from "components/TaskTracker/TaskTracker";
 
-import TaskTracker from "../../components/TaskTracker/TaskTracker";
-import { GlobalStyles } from "./GlobalStyles";
+import { TasksProvider } from "../../entities/task";
+import { UsersProvider } from "../../entities/user";
+
 import { AppStyled } from "./AppStyled";
-import {TasksProvider} from "../../entities/task";
-import {UsersProvider} from "../../entities/user";
+import { GlobalStyles } from "./GlobalStyles";
 
 export class App extends Component {
-  render() {
+  public render() {
     return (
       <>
         <GlobalStyles />
         <AppStyled>
           <TasksProvider>
             <UsersProvider>
-              <TaskTracker/>
+              <TaskTracker />
             </UsersProvider>
           </TasksProvider>
         </AppStyled>
@@ -22,4 +23,3 @@ export class App extends Component {
     );
   }
 }
-

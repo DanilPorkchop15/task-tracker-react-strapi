@@ -1,17 +1,16 @@
 import { FC, FormEvent, useEffect, useRef, useState } from "react";
-import { TaskEditFormStyled, TaskEditInputStyled, TaskLabelStyled, TaskUserSelectStyled }  from "./TaskEditStyled";
-import {Button} from "../../shared/ui";
-import {Task, tasksService} from "../../entities/task";
+
+import { Task, tasksService } from "../../entities/task";
+import { Button } from "../../shared/ui";
+
+import { TaskEditFormStyled, TaskEditInputStyled, TaskLabelStyled, TaskUserSelectStyled } from "./TaskEditStyled";
 
 interface TaskEditProps {
   task: Task;
   username: string | null;
 }
 
-const TaskEdit: FC<TaskEditProps> = ({
-  task,
-  username,
-}) => {
+const TaskEdit: FC<TaskEditProps> = ({ task, username }) => {
   const [userId, setUserId] = useState<number>(0);
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -38,27 +37,17 @@ const TaskEdit: FC<TaskEditProps> = ({
 
   return (
     <TaskEditFormStyled onSubmit={handleEdit}>
-        <TaskLabelStyled htmlFor="newTitle">
-          New title
-          <TaskEditInputStyled
-            ref={inputRef}
-            type="text"
-            placeholder="Enter new task..."
-            name="newTitle"
-          />
-        </TaskLabelStyled>
-        <TaskLabelStyled >
-          Author
-          <TaskUserSelectStyled
-            onSelect={handleSelect}
-            defaultValue={username}
-          />
-        </TaskLabelStyled>
-        <Button type="submit">
-          Edit
-        </Button>
-      </TaskEditFormStyled>
-  )
-}
+      <TaskLabelStyled htmlFor="newTitle">
+        New title
+        <TaskEditInputStyled ref={inputRef} name="newTitle" placeholder="Enter new task..." type="text" />
+      </TaskLabelStyled>
+      <TaskLabelStyled>
+        Author
+        <TaskUserSelectStyled defaultValue={username} onSelect={handleSelect} />
+      </TaskLabelStyled>
+      <Button type="submit">Edit</Button>
+    </TaskEditFormStyled>
+  );
+};
 
 export default TaskEdit;

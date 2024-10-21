@@ -3,16 +3,15 @@
 /* tslint:disable */
 /* eslint-disable */
 export const $TodoResponse = {
-    properties: {
-        data: {
-            type: 'Todo',
-        },
-        meta: {
-            type: 'dictionary',
-            contains: {
-                properties: {
-                },
-            },
-        },
+  properties: {
+    data: {
+      type: "Todo",
     },
+    meta: {
+      type: "dictionary",
+      contains: {
+        properties: {},
+      },
+    },
+  },
 } as const;

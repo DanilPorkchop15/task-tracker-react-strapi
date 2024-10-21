@@ -3,15 +3,15 @@
 /* tslint:disable */
 /* eslint-disable */
 export const $ComplexFieldsGeoComponent = {
-    properties: {
-        id: {
-            type: 'number',
-        },
-        lat: {
-            type: 'string',
-        },
-        lng: {
-            type: 'string',
-        },
+  properties: {
+    id: {
+      type: "number",
     },
+    lat: {
+      type: "string",
+    },
+    lng: {
+      type: "string",
+    },
+  },
 } as const;

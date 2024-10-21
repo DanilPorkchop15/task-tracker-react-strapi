@@ -1,5 +1,5 @@
-import {action, computed, makeObservable, observable} from "mobx";
-import {clone} from "ramda";
+import { action, computed, makeObservable, observable } from "mobx";
+import { clone } from "ramda";
 
 export class Model<TYPE extends object> {
   public readonly initialState: TYPE;

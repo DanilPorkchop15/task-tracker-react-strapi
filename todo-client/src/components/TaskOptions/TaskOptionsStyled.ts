@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import {Button, Input} from "../../shared/ui";
-import {AlignCenterStyled, FlexColStyled} from "../../shared/ui/utils";
+
+import { Button, Input } from "../../shared/ui";
+import { AlignCenterStyled, FlexColStyled } from "../../shared/ui/utils";
 import TaskUserSelect from "../TaskUserSelect/TaskUserSelect";
 
 export const TaskOptionsStyled = styled.div`

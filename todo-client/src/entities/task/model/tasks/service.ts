@@ -1,6 +1,7 @@
-import {TasksModel} from "./model";
-import {TaskApi} from "../../api";
-import {CreateTaskDto, Task, UpdateTaskDto} from "../../interfaces";
+import { TaskApi } from "../../api";
+import { CreateTaskDto, Task, UpdateTaskDto } from "../../interfaces";
+
+import { TasksModel } from "./model";
 
 export class TasksService {
   private _tasksModel: TasksModel | null = null;
@@ -16,7 +17,9 @@ export class TasksService {
 
   public async deleteTask(id: string): Promise<void> {
     await TaskApi.deleteTask(id);
-    this._tasksModel?.set(TasksService._sortTasks([...this._tasksModel.state.filter(task => task.documentId !== id)]));
+    this._tasksModel?.set(
+      TasksService._sortTasks([...this._tasksModel.state.filter((task) => task.documentId !== id)]),
+    );
   }
 
   public async createTask(task: CreateTaskDto): Promise<void> {
@@ -26,32 +29,39 @@ export class TasksService {
 
   public async updateTask(id: string, task: UpdateTaskDto): Promise<void> {
     const taskUpdated = await TaskApi.updateTask(id, task);
-    this._tasksModel?.set(TasksService._sortTasks([...this._tasksModel.state.filter(task => task.documentId !== id), taskUpdated.data[0]]));
+    this._tasksModel?.set(
+      TasksService._sortTasks([
+        ...this._tasksModel.state.filter((task) => task.documentId !== id),
+        taskUpdated.data[0],
+      ]),
+    );
   }
 
   public getTaskFromList(id: string): Task | null {
-    return this._tasksModel?.state.find(task => task.documentId === id) || null;
+    return this._tasksModel?.state.find((task) => task.documentId === id) || null;
   }
 
   public async markAll(value: boolean): Promise<void> {
-    const promises: Promise<unknown>[] = []
+    const promises: Promise<unknown>[] = [];
 
-    this._tasksModel?.state.map(task => {
+    this._tasksModel?.state.map((task) => {
       const newTask: UpdateTaskDto = {
         title: task.title,
         completed: value,
-        user: task.user.id
-      }
+        user: task.user.id,
+      };
       promises.push(TaskApi.updateTask(task.documentId, newTask));
     });
 
     await Promise.all(promises);
-    this._tasksModel?.set(TasksService._sortTasks(this._tasksModel.state.map(task => ({...task, completed: value}))));
+    this._tasksModel?.set(
+      TasksService._sortTasks(this._tasksModel.state.map((task) => ({ ...task, completed: value }))),
+    );
   }
 
   private static _sortTasks(tasks: Task[]): Task[] {
-    return tasks.sort((a, b) => a.id - b.id)
+    return tasks.sort((a, b) => a.id - b.id);
   }
 }
 
-export const tasksService = new TasksService()
+export const tasksService = new TasksService();

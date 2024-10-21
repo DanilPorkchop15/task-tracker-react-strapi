@@ -1,1 +1,1 @@
-export * from "./appApiRoutes"
+export * from "./appApiRoutes";

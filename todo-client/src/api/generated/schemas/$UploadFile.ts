@@ -3,6 +3,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export const $UploadFile = {
-    properties: {
-    },
+  properties: {},
 } as const;

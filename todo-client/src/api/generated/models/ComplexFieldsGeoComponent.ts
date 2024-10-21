@@ -3,8 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export type ComplexFieldsGeoComponent = {
-    id?: number;
-    lat?: string;
-    lng?: string;
+  id?: number;
+  lat?: string;
+  lng?: string;
 };
-

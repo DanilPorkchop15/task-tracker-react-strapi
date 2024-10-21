@@ -1,4 +1,4 @@
-import {Method, Request} from "../model";
+import { Method, Request } from "../model";
 
 export const request = async (method: Method, url: string, request?: Request<any>): Promise<Response> => {
   try {
@@ -9,9 +9,7 @@ export const request = async (method: Method, url: string, request?: Request<any
     if (res.ok) {
       return await res.json();
     } else {
-      throw new Error(
-        `${method} request to ${url} failed with ${res.status} ${res.statusText}`
-      );
+      throw new Error(`${method} request to ${url} failed with ${res.status} ${res.statusText}`);
     }
   } catch (e) {
     console.log(`${method} request error: `, e);

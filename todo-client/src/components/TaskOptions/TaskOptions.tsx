@@ -1,4 +1,7 @@
 import { ChangeEvent, FC, useState } from "react";
+
+import { tasksService } from "../../entities/task";
+
 import {
   MarkAllButtonStyled,
   NewTaskButtonStyled,
@@ -8,8 +11,6 @@ import {
   TaskOptionsUserSelectStyled,
   UnmarkAllButtonStyled,
 } from "./TaskOptionsStyled";
-import {tasksService} from "../../entities/task";
-
 
 const TaskOptions: FC = () => {
   const [value, setValue] = useState<string>("");
@@ -20,8 +21,8 @@ const TaskOptions: FC = () => {
       await tasksService.createTask({
         title: value,
         user: userId,
-        completed: false
-      })
+        completed: false,
+      });
       setValue("");
     } else {
       alert("Введите текст и автора заметки!");
@@ -37,28 +38,20 @@ const TaskOptions: FC = () => {
   };
 
   return (
-    <TaskOptionsStyled >
-      <TaskOptionsBlockStyled >
-        <NewTaskInputStyled
-          type="text"
-          placeholder="Enter new task..."
-          value={value}
-          onChange={handleChange}
-        />
+    <TaskOptionsStyled>
+      <TaskOptionsBlockStyled>
+        <NewTaskInputStyled placeholder="Enter new task..." type="text" value={value} onChange={handleChange} />
         <TaskOptionsUserSelectStyled onSelect={handleSelect} />
-        <NewTaskButtonStyled
-          onClick={handleAdd}
-          disabled={!userId || value.length === 0}
-        >
+        <NewTaskButtonStyled disabled={!userId || value.length === 0} onClick={handleAdd}>
           Add task
         </NewTaskButtonStyled>
       </TaskOptionsBlockStyled>
 
       <TaskOptionsBlockStyled>
-        <MarkAllButtonStyled $success onClick={() => tasksService.markAll(true)}>
+        <MarkAllButtonStyled $success onClick={async () => tasksService.markAll(true)}>
           Check all
         </MarkAllButtonStyled>
-        <UnmarkAllButtonStyled $danger onClick={() => tasksService.markAll(false)}>
+        <UnmarkAllButtonStyled $danger onClick={async () => tasksService.markAll(false)}>
           Uncheck all
         </UnmarkAllButtonStyled>
       </TaskOptionsBlockStyled>

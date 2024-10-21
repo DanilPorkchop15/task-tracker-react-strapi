@@ -1,14 +1,15 @@
 import { FC, useState } from "react";
-import Task from "../Task/Task";
-import { TaskListStyled } from "./TaskListStyled";
-import Pagination from "../../shared/ui/Pagination/Pagination";
-import {tasksService} from "../../entities/task";
-
 import { observer } from "mobx-react-lite";
+
+import { tasksService } from "../../entities/task";
+import Pagination from "../../shared/ui/Pagination/Pagination";
+import Task from "../Task/Task";
+
+import { TaskListStyled } from "./TaskListStyled";
 
 const TaskList: FC = observer(() => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const taskPerPage: number = 10;
+  const taskPerPage = 10;
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -18,20 +19,15 @@ const TaskList: FC = observer(() => {
 
   return (
     <TaskListStyled>
-      {currentTasks &&
-        currentTasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-          />
-        ))
-      }
-      { tasksService.tasks && <Pagination
-        data={tasksService.tasks.state}
-        onPageChange={paginate}
-        taskPerPage={taskPerPage}
-        currentPage={currentPage}
-      />}
+      {currentTasks?.map((task) => <Task key={task.id} task={task} />)}
+      {tasksService.tasks && (
+        <Pagination
+          currentPage={currentPage}
+          data={tasksService.tasks.state}
+          taskPerPage={taskPerPage}
+          onPageChange={paginate}
+        />
+      )}
     </TaskListStyled>
   );
 });

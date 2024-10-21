@@ -1,14 +1,15 @@
 export type Method = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
-
-export type Request<T extends {
-  headers?: Record<string, string>;
-  body?: unknown;
-}> = {
+export type Request<
+  T extends {
+    headers?: Record<string, string>;
+    body?: unknown;
+  },
+> = {
   [K in keyof T]: T[K];
-}
+};
 
-export type ResponseBody<T> = {
+export interface ResponseBody<T> {
   data: T[];
   meta: {
     pagination: {

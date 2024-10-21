@@ -9,4 +9,4 @@ export const SelectStyled = styled.select`
   color: var(--text-color);
   font-size: 16px;
   border: 1px solid var(--input-border-color);
-`
+`;

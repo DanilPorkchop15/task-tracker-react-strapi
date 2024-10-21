@@ -1,5 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import {theme} from "../../shared/config";
+import { createGlobalStyle } from "styled-components";
+
+import { theme } from "../../shared/config";
 
 export const GlobalStyles = createGlobalStyle`
   ${theme}
@@ -21,4 +22,3 @@ export const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 `;
-

@@ -3,18 +3,18 @@
 /* tslint:disable */
 /* eslint-disable */
 export const $ComplexFieldsCompanyComponent = {
-    properties: {
-        id: {
-            type: 'number',
-        },
-        name: {
-            type: 'string',
-        },
-        catchPhrase: {
-            type: 'string',
-        },
-        bs: {
-            type: 'string',
-        },
+  properties: {
+    id: {
+      type: "number",
     },
+    name: {
+      type: "string",
+    },
+    catchPhrase: {
+      type: "string",
+    },
+    bs: {
+      type: "string",
+    },
+  },
 } as const;

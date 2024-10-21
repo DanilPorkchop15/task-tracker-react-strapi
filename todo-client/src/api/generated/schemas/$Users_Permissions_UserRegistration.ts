@@ -3,12 +3,12 @@
 /* tslint:disable */
 /* eslint-disable */
 export const $Users_Permissions_UserRegistration = {
-    properties: {
-        jwt: {
-            type: 'string',
-        },
-        user: {
-            type: 'Users_Permissions_User',
-        },
+  properties: {
+    jwt: {
+      type: "string",
     },
+    user: {
+      type: "Users_Permissions_User",
+    },
+  },
 } as const;

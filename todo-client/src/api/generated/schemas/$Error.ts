@@ -3,38 +3,38 @@
 /* tslint:disable */
 /* eslint-disable */
 export const $Error = {
-    properties: {
-        data: {
-            type: 'one-of',
-            contains: [{
-                type: 'dictionary',
-                contains: {
-                    properties: {
-                    },
-                },
-            }],
-            isNullable: true,
+  properties: {
+    data: {
+      type: "one-of",
+      contains: [
+        {
+          type: "dictionary",
+          contains: {
+            properties: {},
+          },
         },
-        error: {
-            properties: {
-                status: {
-                    type: 'number',
-                },
-                name: {
-                    type: 'string',
-                },
-                message: {
-                    type: 'string',
-                },
-                details: {
-                    type: 'dictionary',
-                    contains: {
-                        properties: {
-                        },
-                    },
-                },
-            },
-            isRequired: true,
-        },
+      ],
+      isNullable: true,
     },
+    error: {
+      properties: {
+        status: {
+          type: "number",
+        },
+        name: {
+          type: "string",
+        },
+        message: {
+          type: "string",
+        },
+        details: {
+          type: "dictionary",
+          contains: {
+            properties: {},
+          },
+        },
+      },
+      isRequired: true,
+    },
+  },
 } as const;

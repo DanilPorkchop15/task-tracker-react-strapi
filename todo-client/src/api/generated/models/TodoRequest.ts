@@ -3,12 +3,11 @@
 /* tslint:disable */
 /* eslint-disable */
 export type TodoRequest = {
-    data: {
-        title: string;
-        completed: boolean;
-        user?: (number | string);
-        locale?: string;
-        localizations?: Array<(number | string)>;
-    };
+  data: {
+    title: string;
+    completed: boolean;
+    user?: number | string;
+    locale?: string;
+    localizations?: Array<number | string>;
+  };
 };
-

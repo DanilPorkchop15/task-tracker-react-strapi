@@ -1,9 +1,9 @@
-import {User} from "../../user/@x";
+import { User } from "../../user/@x";
 
-export type Task = {
+export interface Task {
   id: number;
   documentId: string;
   title: string;
   completed: boolean;
   user: User;
-};
+}

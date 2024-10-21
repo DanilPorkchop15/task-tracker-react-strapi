@@ -1,7 +1,8 @@
 import styled from "styled-components";
+
+import { Input } from "../../shared/ui";
 import { FlexCenterStyled, FlexColStyled } from "../../shared/ui/utils";
 import TaskUserSelect from "../TaskUserSelect/TaskUserSelect";
-import {Input} from "../../shared/ui";
 
 export const TaskEditFormStyled = styled.form`
   ${FlexColStyled};

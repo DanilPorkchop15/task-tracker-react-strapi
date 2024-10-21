@@ -1,6 +1,7 @@
-import {UsersModel} from "./model";
-import {UserApi} from "../../api";
-import {User} from "../../interfaces";
+import { UserApi } from "../../api";
+import { User } from "../../interfaces";
+
+import { UsersModel } from "./model";
 
 export class UsersService {
   private _usersModel: UsersModel | null = null;
@@ -15,7 +16,7 @@ export class UsersService {
   }
 
   public async getUser(id: number): Promise<User> {
-    return await UserApi.getUser(id);
+    return UserApi.getUser(id);
   }
 }
-export const usersService = new UsersService()
+export const usersService = new UsersService();
