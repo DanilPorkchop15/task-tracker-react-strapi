@@ -13,9 +13,7 @@ export class TasksUpdaterService extends TasksService {
     }
 
     tasksLoaderService.tasks?.set(
-      this._sortTasks(
-        [...tasksLoaderService.tasks.state.filter((t) => t.documentId !== id), taskUpdated],
-      ),
+      this._sortTasks([...tasksLoaderService.tasks.state.filter((t) => t.documentId !== id), taskUpdated]),
     );
   }
 }

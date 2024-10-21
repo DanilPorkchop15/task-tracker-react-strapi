@@ -1,4 +1,4 @@
-import { TaskApi, tasksLoaderService, TasksService, type UpdateTaskDto } from "../../../entities/task";
+import { TaskApi, tasksLoaderService, TasksService, type UpdateTaskDto } from "entities/task";
 
 export class TasksCheckerService extends TasksService {
   public async markAll(value: boolean): Promise<void> {

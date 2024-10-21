@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-import { theme } from "../../shared/config";
+import { theme } from "shared/config";
 
 export const GlobalStyles = createGlobalStyle`
   ${theme}

@@ -4,7 +4,6 @@ import type { Task } from "../../interfaces";
 import { TasksModel } from "./model";
 
 export abstract class TasksService {
-
   protected _sortTasks(tasks: Task[]): Task[] {
     return tasks.sort((a, b) => a.id - b.id);
   }
@@ -21,6 +20,5 @@ export class TasksLoaderService extends TasksService {
     this._tasksModel = new TasksModel(tasks.data);
   }
 }
-
 
 export const tasksLoaderService = new TasksLoaderService();
