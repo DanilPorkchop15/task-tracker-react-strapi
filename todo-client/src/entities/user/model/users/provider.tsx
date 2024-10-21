@@ -2,7 +2,7 @@ import React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useAsync } from "react-use";
 
-import { Loader } from "../../../../shared/ui";
+import { Loader } from "shared/ui";
 
 import { usersService } from "./service";
 

@@ -47,10 +47,6 @@ export class TasksService {
     );
   }
 
-  public getTaskFromList(id: string): Task | null {
-    return this._tasksModel?.state.find((task) => task.documentId === id) ?? null;
-  }
-
   public async markAll(value: boolean): Promise<void> {
     const promises: Promise<unknown>[] = [];
 
