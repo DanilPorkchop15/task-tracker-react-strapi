@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 
-import { User, usersService } from "entities/user";
+import { User, useUsers } from "entities/user";
 
 import { SelectStyled } from "./TaskUserSelectStyled";
 
@@ -12,9 +12,10 @@ interface UserSelectProps {
 
 export const UserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, className }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const users = useUsers()
 
   useEffect(() => {
-    const defaultValueUser = usersService.users?.state.find((user) => user.username === defaultValue);
+    const defaultValueUser = users.state.find((user) => user.username === defaultValue);
     if (defaultValueUser) {
       setSelectedUser(defaultValueUser);
       onSelect(defaultValueUser.id);
@@ -22,7 +23,7 @@ export const UserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, classN
   }, []); // eslint-disable-line
 
   const handleSelect: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    const u = usersService.users?.state.find((user) => user.id === +e.target.value);
+    const u = users.state.find((user) => user.id === +e.target.value);
     setSelectedUser(u ?? null);
     onSelect(+e.target.value);
   };
@@ -37,15 +38,11 @@ export const UserSelect: FC<UserSelectProps> = ({ onSelect, defaultValue, classN
       <option disabled value="default">
         Select user
       </option>
-      {usersService.users ? (
-        usersService.users.state.map((user) => (
-          <option key={user.id} value={user.id}>
-            User: {user.username}
-          </option>
-        ))
-      ) : (
-        <option value="loading">loading...</option>
-      )}
+      {users.state.map((user) => (
+        <option key={user.id} value={user.id}>
+          User: {user.username}
+        </option>
+      ))}
     </SelectStyled>
   );
 };

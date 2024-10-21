@@ -23,21 +23,6 @@ export const NewTaskInputStyled = styled(Input)`
   box-shadow: var(--shadow);
 `;
 
-export const NewTaskButtonStyled = styled(Button)`
-  border-radius: 0 10px 0 0;
-  align-self: stretch;
-`;
-
 export const TaskOptionsUserSelectStyled = styled(UserSelect)`
   max-width: 250px;
-`;
-
-export const MarkAllButtonStyled = styled(Button)`
-  flex-grow: 1;
-  border-radius: 0 0 0 10px;
-`;
-
-export const UnmarkAllButtonStyled = styled(Button)`
-  flex-grow: 1;
-  border-radius: 0 0 10px 0;
 `;

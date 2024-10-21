@@ -1,39 +1,23 @@
 import { ChangeEvent, FC, useState } from "react";
 
-import { tasksService } from "../../../../entities/task";
+import { CheckAllTasksFeature, CreateTaskFeature } from "features/task";
 
 import {
-  MarkAllButtonStyled,
-  NewTaskButtonStyled,
   NewTaskInputStyled,
   TaskOptionsBlockStyled,
   TaskOptionsStyled,
   TaskOptionsUserSelectStyled,
-  UnmarkAllButtonStyled,
 } from "./TaskOptionsStyled";
 
 export const TaskOptions: FC = () => {
   const [value, setValue] = useState<string>("");
   const [userId, setUserId] = useState<number | null>(null);
 
-  const handleAdd = async () => {
-    if (value.length > 0 && userId) {
-      await tasksService.createTask({
-        title: value,
-        user: userId,
-        completed: false,
-      });
-      setValue("");
-    } else {
-      alert("Введите текст и автора заметки!");
-    }
-  };
-
   const handleChange: (e: ChangeEvent<HTMLInputElement>) => void = (e) => {
     setValue(e.target.value);
   };
 
-  const handleSelect= (id: number) => {
+  const handleSelect = (id: number) => {
     setUserId(id);
   };
 
@@ -42,20 +26,21 @@ export const TaskOptions: FC = () => {
       <TaskOptionsBlockStyled>
         <NewTaskInputStyled placeholder="Enter new task..." type="text" value={value} onChange={handleChange} />
         <TaskOptionsUserSelectStyled onSelect={handleSelect} />
-        <NewTaskButtonStyled disabled={!userId || value.length === 0} onClick={handleAdd}>
-          Add task
-        </NewTaskButtonStyled>
+        {
+          userId &&
+          <CreateTaskFeature
+            disabled={!userId || value.length === 0}
+            title={value}
+            user={userId}
+            onSuccess={() => setValue("")}
+          />
+        }
       </TaskOptionsBlockStyled>
 
       <TaskOptionsBlockStyled>
-        <MarkAllButtonStyled $success onClick={async () => tasksService.markAll(true)}>
-          Check all
-        </MarkAllButtonStyled>
-        <UnmarkAllButtonStyled $danger onClick={async () => tasksService.markAll(false)}>
-          Uncheck all
-        </UnmarkAllButtonStyled>
+        <CheckAllTasksFeature />
+        <CheckAllTasksFeature uncheck />
       </TaskOptionsBlockStyled>
     </TaskOptionsStyled>
   );
 };
-
